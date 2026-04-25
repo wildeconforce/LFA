@@ -78,9 +78,9 @@ api = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/wildeconforce/lfa"
-Repository = "https://github.com/wildeconforce/lfa"
-Issues = "https://github.com/wildeconforce/lfa/issues"
+Homepage = "https://github.com/wildeconforce/LFA"
+Repository = "https://github.com/wildeconforce/LFA"
+Issues = "https://github.com/wildeconforce/LFA/issues"
 
 [project.scripts]
 lfa = "lfa.__main__:app"

@@ -154,8 +154,8 @@ project skeleton. Working implementations land module-by-module.
 ## Quickstart
 
 ```bash
-git clone https://github.com/wildeconforce/lfa.git
-cd lfa
+git clone https://github.com/wildeconforce/LFA.git
+cd LFA
 pip install -e ".[dev]"
 
 # (skeleton only — not functional yet)
