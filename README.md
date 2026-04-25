@@ -202,9 +202,38 @@ lfa/
     └── fixtures/
 ```
 
+## Acknowledgements
+
+LFA's Mock Trial Engine (Track B) builds on **NVIDIA Nemotron-Personas-Korea**,
+a synthetic Korean persona dataset that made the simulation track viable.
+Without it, generating realistic-distribution synthetic cases that respect
+PII/PIPA constraints would not have been practical for an open-source
+project.
+
+> **NVIDIA Nemotron-Personas-Korea** — 6M synthetic Korean personas
+> grounded in KOSIS statistics + Supreme Court case data. PII-zero,
+> PIPA-compliant.
+>
+> https://huggingface.co/datasets/nvidia/Nemotron-Personas-Korea
+
+We use the dataset under its published license terms. See
+[`docs/SYNTHETIC_DATA.md`](docs/SYNTHETIC_DATA.md) for how the dataset
+flows through Module 9 (`PERSONA_LOADER`) into the rest of the
+simulation pipeline.
+
+Additional public sources used for pattern templates:
+- 국가법령정보센터 (`law.go.kr`)
+- 대법원 종합법률정보 (`glaw.scourt.go.kr`)
+- CaseNote (`casenote.kr`)
+- BigCase (`bigcase.ai`)
+
 ## License
 
 MIT — see [`LICENSE`](LICENSE).
+
+The synthetic-persona data shipped with LFA fixtures is generated from
+NVIDIA Nemotron-Personas-Korea under that dataset's own license. See
+[`docs/SYNTHETIC_DATA.md`](docs/SYNTHETIC_DATA.md).
 
 ## Disclaimer
 
