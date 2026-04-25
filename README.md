@@ -12,7 +12,7 @@
 
 ## What is LFA
 
-LFA is a 13-module open-source framework for analyzing legal cases that
+LFA is a 14-module open-source framework for analyzing legal cases that
 mix civil monetary claims (`약정금`, `대여금`) with criminal overlays
 (`공갈`, `협박`, `갈취`, `사기`).
 
@@ -66,6 +66,7 @@ Static analysis of an existing case file.
 | 6. FACT_VERIFIER | Cross-check facts against source documents |
 | 7. COUNTER_SIMULATOR | Red-team the draft from opposing counsel's perspective |
 | 8. TIMELINE_CONFLICT_DETECTOR | Detect chronological contradictions |
+| 14. ADVERSARIAL_LOOP | Self-audit → self-correct → counter-strike (closes the analysis loop) |
 
 ### 🎭 Simulation track (Modules 9–13) — Mock Trial Engine
 
@@ -178,6 +179,7 @@ lfa/
 │   ├── verifier.py                 Module 6: FACT_VERIFIER
 │   ├── simulator.py                Module 7: COUNTER_SIMULATOR
 │   ├── timeline.py                 Module 8: TIMELINE_CONFLICT_DETECTOR
+│   ├── adversarial.py              Module 14: ADVERSARIAL_LOOP
 │   ├── simulation/
 │   │   ├── persona_loader.py       Module 9
 │   │   ├── case_generator.py       Module 10

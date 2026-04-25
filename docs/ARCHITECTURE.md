@@ -1,6 +1,7 @@
 # LFA Architecture
 
-LFA is a 13-module framework split into two complementary tracks.
+LFA is a 14-module framework split into two complementary tracks
+plus a closing adversarial loop.
 
 ## Track A — Analysis (Modules 1–8)
 
@@ -46,7 +47,16 @@ Static analysis of an existing case file.
 │     simulate opposing counsel attacks           │
 └─────────────────────────────────────────────────┘
         ↓ SimulatorReport
-[Final draft + safe_to_submit flag]
+┌─────────────────────────────────────────────────┐
+│  14. ADVERSARIAL_LOOP                            │
+│      SELF_AUDIT → SELF_CORRECT → COUNTER_STRIKE  │
+│      (iterate until convergence)                 │
+│      attack from a CLEAN position only           │
+│      mirror-error principle: our errors hint     │
+│      at parallel errors in the opposing brief    │
+└─────────────────────────────────────────────────┘
+        ↓ AdversarialReport
+[Final draft + safe_to_submit flag + counter-strikes]
 ```
 
 ## Track B — Simulation (Modules 9–13)

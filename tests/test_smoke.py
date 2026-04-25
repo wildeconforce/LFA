@@ -22,15 +22,16 @@ def test_disclaimer_en_present():
 
 
 def test_modules_importable():
-    """All 13 module files should at least import."""
-    import lfa.scanner    # noqa
-    import lfa.breaker    # noqa
-    import lfa.hunter     # noqa
-    import lfa.writer     # noqa
-    import lfa.reviewer   # noqa
-    import lfa.verifier   # noqa
-    import lfa.simulator  # noqa
-    import lfa.timeline   # noqa
+    """All 14 module files should at least import."""
+    import lfa.scanner       # noqa
+    import lfa.breaker       # noqa
+    import lfa.hunter        # noqa
+    import lfa.writer        # noqa
+    import lfa.reviewer      # noqa
+    import lfa.verifier      # noqa
+    import lfa.simulator     # noqa
+    import lfa.timeline      # noqa
+    import lfa.adversarial   # noqa
     from lfa.simulation import (  # noqa
         persona_loader,
         case_generator,

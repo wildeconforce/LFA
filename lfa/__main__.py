@@ -69,5 +69,18 @@ def simulate(seed: int = 42):
     console.print(f"[dim]{DISCLAIMER}[/dim]")
 
 
+@app.command()
+def adversarial(draft_path: str, opposing_path: str):
+    """Run the self-correct + counter-strike adversarial loop.
+
+    Module 14 — ADVERSARIAL_LOOP. Skeleton: not yet functional.
+    """
+    console.print(
+        f"[yellow]ADVERSARIAL_LOOP skeleton — would self-audit {draft_path}, "
+        f"then counter-strike against {opposing_path}[/yellow]"
+    )
+    console.print(f"[dim]{DISCLAIMER}[/dim]")
+
+
 if __name__ == "__main__":
     app()

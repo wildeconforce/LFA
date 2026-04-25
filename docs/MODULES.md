@@ -136,6 +136,36 @@ and prior decisions.
 
 ---
 
+### Module 14: ADVERSARIAL_LOOP (`lfa.adversarial`)
+
+Closed-loop self-correction + counter-strike. Sits at the end of
+the analysis pipeline.
+
+Three sequential operations per iteration:
+1. **SELF_AUDIT** — find errors in our own draft (factual / logical /
+   tone / unverified citation / internal contradiction / weak phrasing /
+   premature concession).
+2. **SELF_CORRECT** — apply fixes to the draft.
+3. **COUNTER_STRIKE** — re-run weakness detection against the
+   opposing brief, but now from the corrected position. The
+   **mirror-error principle** applies: error types we made are often
+   present on the opposing side too.
+
+**Loop termination:** when `SELF_AUDIT` finds no more must-fix issues
+or `max_iterations` is reached.
+
+**Design discipline:** we attack only after we are clean. A draft
+with internal errors cannot credibly attack opposing errors — the
+opposing side will counter with our own mistakes.
+
+**Public API:**
+- `run_loop(draft, case, opposing_brief_text, max_iterations) -> AdversarialReport`
+- `self_audit(draft, case) -> list[SelfAuditFinding]`
+- `self_correct(draft, findings) -> DraftDocument`
+- `counter_strike(revised_draft, opposing_brief_text, case, audit_findings) -> list[CounterStrikeAttack]`
+
+---
+
 ## Track B — Simulation (Mock Trial Engine)
 
 ### Module 9: PERSONA_LOADER (`lfa.simulation.persona_loader`)
