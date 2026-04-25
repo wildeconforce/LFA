@@ -1,0 +1,103 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lfa"
+version = "0.1.0-dev"
+description = "Modular framework for analyzing Korean civil and criminal cases (assistive, not advisory)"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.11"
+authors = [{ name = "LFA contributors" }]
+keywords = [
+    "legal",
+    "korean-law",
+    "civil-procedure",
+    "criminal-procedure",
+    "legal-tech",
+    "multi-agent",
+    "synthetic-data",
+    "self-litigation",
+]
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Intended Audience :: Legal Industry",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: Korean",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Text Processing :: Linguistic",
+]
+
+dependencies = [
+    # Core
+    "pydantic>=2.5",
+    "pyyaml>=6.0",
+    # Document parsing
+    "python-docx>=1.1",
+    "pymupdf>=1.24",
+    "pytesseract>=0.3.10",
+    "pillow>=10.0",
+    # Korean NLP
+    "kiwipiepy>=0.17",
+    # HTTP / scraping
+    "httpx>=0.27",
+    "beautifulsoup4>=4.12",
+    # CLI
+    "typer>=0.12",
+    "rich>=13.7",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-cov>=5.0",
+    "ruff>=0.5",
+    "mypy>=1.10",
+]
+
+llm = [
+    "anthropic>=0.30",
+    "openai>=1.30",
+]
+
+simulation = [
+    # Mock Trial Engine deps
+    "datasets>=2.20",          # Nemotron-Personas-Korea loading
+    "sqlalchemy>=2.0",         # Persona indexing
+    "pyautogen>=0.2",          # Multi-agent (or langgraph alternative)
+]
+
+api = [
+    "fastapi>=0.115",
+    "uvicorn>=0.30",
+]
+
+[project.urls]
+Homepage = "https://github.com/wildeconforce/lfa"
+Repository = "https://github.com/wildeconforce/lfa"
+Issues = "https://github.com/wildeconforce/lfa/issues"
+
+[project.scripts]
+lfa = "lfa.__main__:app"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["lfa*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "N"]
+ignore = ["E501"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+addopts = "-ra --strict-markers"
